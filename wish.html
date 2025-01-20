@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Surprise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+            background-color: #f0f8ff;
+        }
+
+        #container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .hidden {
+            visibility: hidden;
+        }
+
+        .fadeIn {
+            animation: fadeIn 2s forwards;
+        }
+
+        .paragraphAnimation {
+            animation: paragraphFadeIn 2s forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes paragraphFadeIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .popup {
+            padding: 15px;
+            background-color: #ffeb3b;
+            font-size: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 10px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .popup:hover {
+            background-color: #fbc02d;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <h1 id="greeting" class="fadeIn">🎉 Click to Unlock a Birthday Surprise! 🎉</h1>
+        <div id="wish" class="hidden">
+            <p id="birthdayMessage" class="hidden">
+                💖🎉 Happy birthday sweetheart! 🎂💖<br><br>
+                I want to take a moment to celebrate the incredible person you are. ✨ You bring so much light 🌟 and happiness 😄 into my life, and I'm grateful for every moment we've shared together. 🕒💖 From the silly talks 🤪 to the heartfelt conversations 💬, you've always been there for me, supporting and encouraging me every step of the way. 👣❤️<br><br>
+                You are one of the most supportive people I've come across. 🏅 Your friendship is truly a gift 🎁, and I cherish it more than words can express. 🥰💫 You are just so special the way you are. 💕 I never knew that we would become this close 👯‍♂️ or we would ever match a vibe 🎶, but fortunately, we vibed 💫, and till now, you are one of the closest people whom I can blindly trust. 🤗💖<br><br>
+                🌹 Love you always! 🌹
+            </p>
+        </div>
+        <button id="trigger" class="popup" onclick="surprise()">🎁 Unwrap Your Surprise! 🎁</button>
+    </div>
+
+    <script>
+        function surprise() {
+            // Hide the greeting and the button immediately
+            document.getElementById('greeting').classList.add('hidden');
+            document.getElementById('trigger').classList.add('hidden');
+
+            // Show the birthday wish with animation
+            let wishElement = document.getElementById('wish');
+            let birthdayMessage = document.getElementById('birthdayMessage');
+            wishElement.classList.remove('hidden');  // Make the 'wish' visible
+            wishElement.classList.add('fadeIn');    // Add the fade-in animation
+
+            // After 1 second, update the message text
+            setTimeout(function() {
+                birthdayMessage.classList.remove('hidden');   // Make paragraph visible
+                birthdayMessage.classList.add('paragraphAnimation');   // Add paragraph animation
+
+                document.getElementById('birthdayMessage').innerHTML = "💖🎉 Happy birthday Lashya!(BuBu) 🎂💖<br><br>" +
+                    "I want to take a moment to say that you are incredible person. ✨ You bring so much light 🌟 and happiness 😄 into my life, and I'm grateful for every moment we've shared together. 🕒💖 From the silly talks 🤪 to the heartfelt conversations 💬, you've always been there for me, supporting and encouraging me every step of the way. 👣❤️<br><br>" +
+                    "You are one of the most supportive people I've come across. 🏅 Your are truly a gift for me🎁, and I cherish it more than words can express. 🥰💫 You are just so special the way you are. 💕 I never knew that we would become this close 👯‍♂️ and till now, you are one of the closest people whom I can blindly trust. 🤗💖<br><br>" +
+                    "🌹 Love you always! 🌹";
+            }, 1000);  // Change the message after 1 second
+        }
+    </script>
+
+</body>
+</html>
